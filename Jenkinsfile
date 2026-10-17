@@ -9,25 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Install Dependencies and Test') {
-            steps {
-                bat 'python -m pip install --upgrade pip'
-pipeline {
-    agent any
-
-    options {
-        timestamps()
-        disableConcurrentBuilds()
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
+                echo 'Repository checked out by Jenkins.'
             }
         }
 
@@ -51,7 +33,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deployment is pending AWS and deployment-target configuration.'
+                echo 'Deployment is pending AWS configuration.'
             }
         }
     }
@@ -67,4 +49,4 @@ pipeline {
             echo 'Pipeline run finished.'
         }
     }
-}               
+}
